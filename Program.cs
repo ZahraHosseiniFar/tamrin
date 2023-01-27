@@ -4,33 +4,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp15
+namespace ConsoleApp17
 {
     class Program
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("enter one number : ");
+            Console.WriteLine("enter one even number : ");
             int a = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine(isTrain(a));
-            Console.ReadKey();
-        }
-
-        private static Boolean isTrain(int a)
-        {
             int i;
-            int sum = 0;
-            for (i = 0; i <= a; i++)
+            if (a % 2 == 0)
             {
-                sum = sum + i;
-
-                if (sum == a)
+                for (i = 3; i <= Math.Sqrt(a); i+=2) ;
                 {
-                    return true;
+                    while (a % i == 0)
+                    {
+                        Console.WriteLine(i + " ");
+                        a /= i;
+                    }
                 }
+                if (a > 2)
+                    Console.WriteLine(a);
             }
-                    return false;
-            
+            else
+                Console.WriteLine("number isn't even");
+
+            Console.ReadKey();
         }
     }
 }
